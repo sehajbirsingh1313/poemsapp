@@ -1,0 +1,19 @@
+<form style="background-color: rgb(196, 201, 249);">
+  <h1 style="text-align: center; font-size:75px;">Poems App</h1>
+  <h2 style="text-align: center; font-size:45px;">Upload your Poem</h2>
+
+  <app-upload (poemUploaded)="displayPoem($event)"></app-upload>
+
+  <div *ngIf="uploadedPoems.length > 0">
+    <h2 style="text-align: center;">Uploaded Poems</h2>
+    <div *ngFor="let poem of uploadedPoems">
+      <p style="text-align: center;"><strong>Title:</strong> {{ poem.title }}</p>
+      <pre style="text-align: justify; margin-left: 850px;"><strong>Poem:</strong> {{ poem.content }}</pre>
+      <img [src]="getBase64ImageSrc(poem.image)" alt="Poem Image" *ngIf="poem.image" class="poem-image" style="  display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;">
+    </div>
+    
+  </div>
+</form>

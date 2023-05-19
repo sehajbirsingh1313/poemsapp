@@ -1,0 +1,17 @@
+<h2>List of Published Poems</h2>
+
+<div *ngIf="poems.length === 0">
+  <p>No poems found.</p>
+</div>
+
+<ul *ngIf="poems.length > 0">
+  <li *ngFor="let poem of poems">{{ poem }}</li>
+</ul>
+
+<hr>
+
+<div>
+  <h3>Add a New Poem</h3>
+  <input type="text" [(ngModel)]="newPoem" placeholder="Enter a new poem">
+  <button (click)="addPoem()">Add Poem</button>
+</div>
